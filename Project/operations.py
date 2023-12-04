@@ -66,6 +66,30 @@ class SpaceXOperations(BaseSpaceX):
             print(f'Query size: {row_counter}')
         return query_result
 
+    def updateData(self, table, update_statement):
+        """
+        This function updates data in a specified table using a provided update statement.
+
+        Parameters:
+        table (Table): The table to update data in.
+        update_statement (Update): The update statement to use.
+        """
+        with Session(self.engine) as session:
+            session.execute(update_statement)
+            session.commit()
+
+    def deleteData(self, table, delete_statement):
+        """
+        This function deletes data from a specified table using a provided delete statement.
+
+        Parameters:
+        table (Table): The table to delete data from.
+        delete_statement (Delete): The delete statement to use.
+        """
+        with Session(self.engine) as session:
+            session.execute(delete_statement)
+            session.commit()
+
     def dropData(self, table):
         """
         This function drops a specified table from the database.

@@ -8,14 +8,21 @@ from sqlalchemy.dialects.mysql import TIMESTAMP
 
 class BaseSpaceX:
     def __init__(self):
-        #Loading DB parameters from .env file
+        """
+        Initializes the BaseSpaceX class. Loads DB parameters from .env file and starts the DB.
+        """
         load_dotenv()
-        #Starting the DB
         self.engine = create_engine(f"postgresql://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}@{os.getenv('POSTGRES_HOST')}:{os.getenv('POSTGRES_PORT')}/postgres")
         self.metadata = MetaData()
         self.metadata.bind = self.engine
 
     def createStarlinkTable(self):
+        """
+        Creates the Starlink table in the database.
+
+        Returns:
+        Table: The created Starlink table.
+        """
         SLTable = Table(
         'starlink_historical_data', 
         self.metadata,
@@ -32,10 +39,16 @@ class BaseSpaceX:
         return SLTable
 
     def instantiateDB(self):
+        """
+        Instantiates the database by creating all tables in the metadata.
+        """
         self.metadata.create_all(self.engine)
 
 
     def gatherStarlinkJsonData(self):
+        """
+        Gathers Starlink data from a JSON file hosted online. The data is stored in the starlink_data attribute.
+        """
         self.starlink_data = []
         row_counter = 1
 
