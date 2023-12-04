@@ -42,3 +42,9 @@ python main.py
 ```
 
 You can also run any other specific file that you might want.
+
+## Next steps
+
+- Build an actual API for the requests instead of just relying on the Python structure.
+- Write tests for the CRUD operations.
+- Do some tests to understand how much of a gain is to actually be using TimescaleDB's hypertables instead of a regular PostgreSQL table.
