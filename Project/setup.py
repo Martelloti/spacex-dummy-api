@@ -21,8 +21,8 @@ class BaseSpaceX:
         self.metadata,
         Column('id', String),
         Column('satellite_id', String),
-        Column('longitude', Float, nullable=True),
         Column('latitude', Float, nullable=True),
+        Column('longitude', Float, nullable=True),
         Column('creation_date', TIMESTAMP),
         timescaledb_hypertable={
             'time_column_name': 'creation_date'
@@ -46,8 +46,8 @@ class BaseSpaceX:
             row_dict = {
                 'id': row_counter, 
                 'satellite_id': record['id'], 
-                'longitude': record['longitude'], 
                 'latitude': record['latitude'],
+                'longitude': record['longitude'], 
                 'creation_date': record['spaceTrack']['CREATION_DATE']
                 }
             self.starlink_data.append(row_dict)
