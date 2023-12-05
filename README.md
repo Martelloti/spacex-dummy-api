@@ -32,6 +32,14 @@ source env/bin/activate  # On Windows, use `env\Scripts\activate`
 pip install -r requirements.txt
 ```
 
+3. Create an .env file in the root folder with the following info:
+```
+POSTGRES_USER = timescaledb
+POSTGRES_PASSWORD = password
+POSTGRES_HOST = localhost
+POSTGRES_PORT = 5432
+```
+
 ### Usage
 1. Edit the queries in the main.py file. The docstrings in this file explain how each query works. You can use these as a guideline to create your own query functions using the CRUD operations in the operations.py file.
 
