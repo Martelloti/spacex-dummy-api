@@ -32,7 +32,7 @@ source env/bin/activate  # On Windows, use `env\Scripts\activate`
 pip install -r requirements.txt
 ```
 
-3. Create an .env file in the root folder with the following info:
+4. Create an .env file in the root folder with the following info:
 ```
 POSTGRES_USER = timescaledb
 POSTGRES_PASSWORD = password
